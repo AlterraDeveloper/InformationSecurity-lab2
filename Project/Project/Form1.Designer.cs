@@ -96,36 +96,42 @@
             // inputTextBox
             // 
             this.inputTextBox.Location = new System.Drawing.Point(33, 20);
-            this.inputTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.inputTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.inputTextBox.Multiline = true;
             this.inputTextBox.Name = "inputTextBox";
             this.inputTextBox.Size = new System.Drawing.Size(845, 176);
             this.inputTextBox.TabIndex = 0;
+            this.inputTextBox.TextChanged += new System.EventHandler(this.inputTextBox_TextChanged);
             // 
             // outputTextBox
             // 
             this.outputTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.outputTextBox.Location = new System.Drawing.Point(33, 443);
-            this.outputTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.outputTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.outputTextBox.Multiline = true;
             this.outputTextBox.Name = "outputTextBox";
+            this.outputTextBox.ReadOnly = true;
             this.outputTextBox.Size = new System.Drawing.Size(845, 176);
             this.outputTextBox.TabIndex = 1;
+            this.outputTextBox.TextChanged += new System.EventHandler(this.outputTextBox_TextChanged);
             // 
             // btnEncrypt
             // 
+            this.btnEncrypt.Enabled = false;
             this.btnEncrypt.Location = new System.Drawing.Point(33, 247);
-            this.btnEncrypt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEncrypt.Margin = new System.Windows.Forms.Padding(4);
             this.btnEncrypt.Name = "btnEncrypt";
             this.btnEncrypt.Size = new System.Drawing.Size(195, 28);
             this.btnEncrypt.TabIndex = 2;
             this.btnEncrypt.Text = "Зашифровать";
             this.btnEncrypt.UseVisualStyleBackColor = true;
+            this.btnEncrypt.Click += new System.EventHandler(this.btnEncrypt_Click);
             // 
             // btnDecrypt
             // 
+            this.btnDecrypt.Enabled = false;
             this.btnDecrypt.Location = new System.Drawing.Point(33, 283);
-            this.btnDecrypt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDecrypt.Margin = new System.Windows.Forms.Padding(4);
             this.btnDecrypt.Name = "btnDecrypt";
             this.btnDecrypt.Size = new System.Drawing.Size(195, 28);
             this.btnDecrypt.TabIndex = 3;
@@ -135,7 +141,7 @@
             // btnLoadTextFromFile
             // 
             this.btnLoadTextFromFile.Location = new System.Drawing.Point(893, 20);
-            this.btnLoadTextFromFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLoadTextFromFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadTextFromFile.Name = "btnLoadTextFromFile";
             this.btnLoadTextFromFile.Size = new System.Drawing.Size(167, 80);
             this.btnLoadTextFromFile.TabIndex = 4;
@@ -152,7 +158,7 @@
             "4",
             "5"});
             this.cmbboxMatrixSize.Location = new System.Drawing.Point(56, 350);
-            this.cmbboxMatrixSize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbboxMatrixSize.Margin = new System.Windows.Forms.Padding(4);
             this.cmbboxMatrixSize.Name = "cmbboxMatrixSize";
             this.cmbboxMatrixSize.Size = new System.Drawing.Size(160, 24);
             this.cmbboxMatrixSize.TabIndex = 5;
@@ -172,7 +178,7 @@
             // 
             this.matrix00.Enabled = false;
             this.matrix00.Location = new System.Drawing.Point(262, 247);
-            this.matrix00.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix00.Margin = new System.Windows.Forms.Padding(4);
             this.matrix00.Name = "matrix00";
             this.matrix00.Size = new System.Drawing.Size(53, 23);
             this.matrix00.TabIndex = 7;
@@ -182,7 +188,7 @@
             // 
             this.matrix01.Enabled = false;
             this.matrix01.Location = new System.Drawing.Point(330, 247);
-            this.matrix01.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix01.Margin = new System.Windows.Forms.Padding(4);
             this.matrix01.Name = "matrix01";
             this.matrix01.Size = new System.Drawing.Size(53, 23);
             this.matrix01.TabIndex = 8;
@@ -192,7 +198,7 @@
             // 
             this.matrix02.Enabled = false;
             this.matrix02.Location = new System.Drawing.Point(398, 247);
-            this.matrix02.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix02.Margin = new System.Windows.Forms.Padding(4);
             this.matrix02.Name = "matrix02";
             this.matrix02.Size = new System.Drawing.Size(53, 23);
             this.matrix02.TabIndex = 9;
@@ -202,7 +208,7 @@
             // 
             this.matrix03.Enabled = false;
             this.matrix03.Location = new System.Drawing.Point(466, 247);
-            this.matrix03.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix03.Margin = new System.Windows.Forms.Padding(4);
             this.matrix03.Name = "matrix03";
             this.matrix03.Size = new System.Drawing.Size(53, 23);
             this.matrix03.TabIndex = 10;
@@ -212,7 +218,7 @@
             // 
             this.matrix04.Enabled = false;
             this.matrix04.Location = new System.Drawing.Point(534, 247);
-            this.matrix04.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix04.Margin = new System.Windows.Forms.Padding(4);
             this.matrix04.Name = "matrix04";
             this.matrix04.Size = new System.Drawing.Size(53, 23);
             this.matrix04.TabIndex = 11;
@@ -222,7 +228,7 @@
             // 
             this.matrix14.Enabled = false;
             this.matrix14.Location = new System.Drawing.Point(534, 279);
-            this.matrix14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix14.Margin = new System.Windows.Forms.Padding(4);
             this.matrix14.Name = "matrix14";
             this.matrix14.Size = new System.Drawing.Size(53, 23);
             this.matrix14.TabIndex = 16;
@@ -232,7 +238,7 @@
             // 
             this.matrix13.Enabled = false;
             this.matrix13.Location = new System.Drawing.Point(466, 279);
-            this.matrix13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix13.Margin = new System.Windows.Forms.Padding(4);
             this.matrix13.Name = "matrix13";
             this.matrix13.Size = new System.Drawing.Size(53, 23);
             this.matrix13.TabIndex = 15;
@@ -242,7 +248,7 @@
             // 
             this.matrix12.Enabled = false;
             this.matrix12.Location = new System.Drawing.Point(398, 279);
-            this.matrix12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix12.Margin = new System.Windows.Forms.Padding(4);
             this.matrix12.Name = "matrix12";
             this.matrix12.Size = new System.Drawing.Size(53, 23);
             this.matrix12.TabIndex = 14;
@@ -252,7 +258,7 @@
             // 
             this.matrix11.Enabled = false;
             this.matrix11.Location = new System.Drawing.Point(330, 279);
-            this.matrix11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix11.Margin = new System.Windows.Forms.Padding(4);
             this.matrix11.Name = "matrix11";
             this.matrix11.Size = new System.Drawing.Size(53, 23);
             this.matrix11.TabIndex = 13;
@@ -262,7 +268,7 @@
             // 
             this.matrix10.Enabled = false;
             this.matrix10.Location = new System.Drawing.Point(262, 279);
-            this.matrix10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix10.Margin = new System.Windows.Forms.Padding(4);
             this.matrix10.Name = "matrix10";
             this.matrix10.Size = new System.Drawing.Size(53, 23);
             this.matrix10.TabIndex = 12;
@@ -272,7 +278,7 @@
             // 
             this.matrix24.Enabled = false;
             this.matrix24.Location = new System.Drawing.Point(534, 311);
-            this.matrix24.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix24.Margin = new System.Windows.Forms.Padding(4);
             this.matrix24.Name = "matrix24";
             this.matrix24.Size = new System.Drawing.Size(53, 23);
             this.matrix24.TabIndex = 21;
@@ -282,7 +288,7 @@
             // 
             this.matrix23.Enabled = false;
             this.matrix23.Location = new System.Drawing.Point(466, 311);
-            this.matrix23.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix23.Margin = new System.Windows.Forms.Padding(4);
             this.matrix23.Name = "matrix23";
             this.matrix23.Size = new System.Drawing.Size(53, 23);
             this.matrix23.TabIndex = 20;
@@ -292,7 +298,7 @@
             // 
             this.matrix22.Enabled = false;
             this.matrix22.Location = new System.Drawing.Point(398, 311);
-            this.matrix22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix22.Margin = new System.Windows.Forms.Padding(4);
             this.matrix22.Name = "matrix22";
             this.matrix22.Size = new System.Drawing.Size(53, 23);
             this.matrix22.TabIndex = 19;
@@ -302,7 +308,7 @@
             // 
             this.matrix21.Enabled = false;
             this.matrix21.Location = new System.Drawing.Point(330, 311);
-            this.matrix21.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix21.Margin = new System.Windows.Forms.Padding(4);
             this.matrix21.Name = "matrix21";
             this.matrix21.Size = new System.Drawing.Size(53, 23);
             this.matrix21.TabIndex = 18;
@@ -312,7 +318,7 @@
             // 
             this.matrix20.Enabled = false;
             this.matrix20.Location = new System.Drawing.Point(262, 311);
-            this.matrix20.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix20.Margin = new System.Windows.Forms.Padding(4);
             this.matrix20.Name = "matrix20";
             this.matrix20.Size = new System.Drawing.Size(53, 23);
             this.matrix20.TabIndex = 17;
@@ -322,7 +328,7 @@
             // 
             this.matrix34.Enabled = false;
             this.matrix34.Location = new System.Drawing.Point(534, 343);
-            this.matrix34.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix34.Margin = new System.Windows.Forms.Padding(4);
             this.matrix34.Name = "matrix34";
             this.matrix34.Size = new System.Drawing.Size(53, 23);
             this.matrix34.TabIndex = 26;
@@ -332,7 +338,7 @@
             // 
             this.matrix33.Enabled = false;
             this.matrix33.Location = new System.Drawing.Point(466, 343);
-            this.matrix33.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix33.Margin = new System.Windows.Forms.Padding(4);
             this.matrix33.Name = "matrix33";
             this.matrix33.Size = new System.Drawing.Size(53, 23);
             this.matrix33.TabIndex = 25;
@@ -342,7 +348,7 @@
             // 
             this.matrix32.Enabled = false;
             this.matrix32.Location = new System.Drawing.Point(398, 343);
-            this.matrix32.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix32.Margin = new System.Windows.Forms.Padding(4);
             this.matrix32.Name = "matrix32";
             this.matrix32.Size = new System.Drawing.Size(53, 23);
             this.matrix32.TabIndex = 24;
@@ -352,7 +358,7 @@
             // 
             this.matrix31.Enabled = false;
             this.matrix31.Location = new System.Drawing.Point(330, 343);
-            this.matrix31.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix31.Margin = new System.Windows.Forms.Padding(4);
             this.matrix31.Name = "matrix31";
             this.matrix31.Size = new System.Drawing.Size(53, 23);
             this.matrix31.TabIndex = 23;
@@ -362,7 +368,7 @@
             // 
             this.matrix30.Enabled = false;
             this.matrix30.Location = new System.Drawing.Point(262, 343);
-            this.matrix30.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix30.Margin = new System.Windows.Forms.Padding(4);
             this.matrix30.Name = "matrix30";
             this.matrix30.Size = new System.Drawing.Size(53, 23);
             this.matrix30.TabIndex = 22;
@@ -372,7 +378,7 @@
             // 
             this.matrix44.Enabled = false;
             this.matrix44.Location = new System.Drawing.Point(534, 377);
-            this.matrix44.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix44.Margin = new System.Windows.Forms.Padding(4);
             this.matrix44.Name = "matrix44";
             this.matrix44.Size = new System.Drawing.Size(53, 23);
             this.matrix44.TabIndex = 31;
@@ -382,7 +388,7 @@
             // 
             this.matrix43.Enabled = false;
             this.matrix43.Location = new System.Drawing.Point(466, 377);
-            this.matrix43.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix43.Margin = new System.Windows.Forms.Padding(4);
             this.matrix43.Name = "matrix43";
             this.matrix43.Size = new System.Drawing.Size(53, 23);
             this.matrix43.TabIndex = 30;
@@ -392,7 +398,7 @@
             // 
             this.matrix42.Enabled = false;
             this.matrix42.Location = new System.Drawing.Point(398, 377);
-            this.matrix42.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix42.Margin = new System.Windows.Forms.Padding(4);
             this.matrix42.Name = "matrix42";
             this.matrix42.Size = new System.Drawing.Size(53, 23);
             this.matrix42.TabIndex = 29;
@@ -402,7 +408,7 @@
             // 
             this.matrix41.Enabled = false;
             this.matrix41.Location = new System.Drawing.Point(330, 377);
-            this.matrix41.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix41.Margin = new System.Windows.Forms.Padding(4);
             this.matrix41.Name = "matrix41";
             this.matrix41.Size = new System.Drawing.Size(53, 23);
             this.matrix41.TabIndex = 28;
@@ -412,7 +418,7 @@
             // 
             this.matrix40.Enabled = false;
             this.matrix40.Location = new System.Drawing.Point(262, 377);
-            this.matrix40.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.matrix40.Margin = new System.Windows.Forms.Padding(4);
             this.matrix40.Name = "matrix40";
             this.matrix40.Size = new System.Drawing.Size(53, 23);
             this.matrix40.TabIndex = 27;
@@ -446,6 +452,7 @@
             this.inverse44.Location = new System.Drawing.Point(961, 377);
             this.inverse44.Margin = new System.Windows.Forms.Padding(4);
             this.inverse44.Name = "inverse44";
+            this.inverse44.ReadOnly = true;
             this.inverse44.Size = new System.Drawing.Size(53, 23);
             this.inverse44.TabIndex = 57;
             this.inverse44.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -457,6 +464,7 @@
             this.inverse43.Location = new System.Drawing.Point(893, 377);
             this.inverse43.Margin = new System.Windows.Forms.Padding(4);
             this.inverse43.Name = "inverse43";
+            this.inverse43.ReadOnly = true;
             this.inverse43.Size = new System.Drawing.Size(53, 23);
             this.inverse43.TabIndex = 56;
             this.inverse43.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -467,6 +475,7 @@
             this.inverse42.Location = new System.Drawing.Point(825, 377);
             this.inverse42.Margin = new System.Windows.Forms.Padding(4);
             this.inverse42.Name = "inverse42";
+            this.inverse42.ReadOnly = true;
             this.inverse42.Size = new System.Drawing.Size(53, 23);
             this.inverse42.TabIndex = 55;
             this.inverse42.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -477,6 +486,7 @@
             this.inverse41.Location = new System.Drawing.Point(757, 377);
             this.inverse41.Margin = new System.Windows.Forms.Padding(4);
             this.inverse41.Name = "inverse41";
+            this.inverse41.ReadOnly = true;
             this.inverse41.Size = new System.Drawing.Size(53, 23);
             this.inverse41.TabIndex = 54;
             this.inverse41.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -487,6 +497,7 @@
             this.inverse40.Location = new System.Drawing.Point(689, 377);
             this.inverse40.Margin = new System.Windows.Forms.Padding(4);
             this.inverse40.Name = "inverse40";
+            this.inverse40.ReadOnly = true;
             this.inverse40.Size = new System.Drawing.Size(53, 23);
             this.inverse40.TabIndex = 53;
             this.inverse40.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -497,6 +508,7 @@
             this.inverse34.Location = new System.Drawing.Point(961, 343);
             this.inverse34.Margin = new System.Windows.Forms.Padding(4);
             this.inverse34.Name = "inverse34";
+            this.inverse34.ReadOnly = true;
             this.inverse34.Size = new System.Drawing.Size(53, 23);
             this.inverse34.TabIndex = 52;
             this.inverse34.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -507,6 +519,7 @@
             this.inverse33.Location = new System.Drawing.Point(893, 343);
             this.inverse33.Margin = new System.Windows.Forms.Padding(4);
             this.inverse33.Name = "inverse33";
+            this.inverse33.ReadOnly = true;
             this.inverse33.Size = new System.Drawing.Size(53, 23);
             this.inverse33.TabIndex = 51;
             this.inverse33.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -517,6 +530,7 @@
             this.inverse32.Location = new System.Drawing.Point(825, 343);
             this.inverse32.Margin = new System.Windows.Forms.Padding(4);
             this.inverse32.Name = "inverse32";
+            this.inverse32.ReadOnly = true;
             this.inverse32.Size = new System.Drawing.Size(53, 23);
             this.inverse32.TabIndex = 50;
             this.inverse32.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -527,6 +541,7 @@
             this.inverse31.Location = new System.Drawing.Point(757, 343);
             this.inverse31.Margin = new System.Windows.Forms.Padding(4);
             this.inverse31.Name = "inverse31";
+            this.inverse31.ReadOnly = true;
             this.inverse31.Size = new System.Drawing.Size(53, 23);
             this.inverse31.TabIndex = 49;
             this.inverse31.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -537,6 +552,7 @@
             this.inverse30.Location = new System.Drawing.Point(689, 343);
             this.inverse30.Margin = new System.Windows.Forms.Padding(4);
             this.inverse30.Name = "inverse30";
+            this.inverse30.ReadOnly = true;
             this.inverse30.Size = new System.Drawing.Size(53, 23);
             this.inverse30.TabIndex = 48;
             this.inverse30.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -547,6 +563,7 @@
             this.inverse24.Location = new System.Drawing.Point(961, 311);
             this.inverse24.Margin = new System.Windows.Forms.Padding(4);
             this.inverse24.Name = "inverse24";
+            this.inverse24.ReadOnly = true;
             this.inverse24.Size = new System.Drawing.Size(53, 23);
             this.inverse24.TabIndex = 47;
             this.inverse24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -557,6 +574,7 @@
             this.inverse23.Location = new System.Drawing.Point(893, 311);
             this.inverse23.Margin = new System.Windows.Forms.Padding(4);
             this.inverse23.Name = "inverse23";
+            this.inverse23.ReadOnly = true;
             this.inverse23.Size = new System.Drawing.Size(53, 23);
             this.inverse23.TabIndex = 46;
             this.inverse23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -567,6 +585,7 @@
             this.inverse22.Location = new System.Drawing.Point(825, 311);
             this.inverse22.Margin = new System.Windows.Forms.Padding(4);
             this.inverse22.Name = "inverse22";
+            this.inverse22.ReadOnly = true;
             this.inverse22.Size = new System.Drawing.Size(53, 23);
             this.inverse22.TabIndex = 45;
             this.inverse22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -577,6 +596,7 @@
             this.inverse21.Location = new System.Drawing.Point(757, 311);
             this.inverse21.Margin = new System.Windows.Forms.Padding(4);
             this.inverse21.Name = "inverse21";
+            this.inverse21.ReadOnly = true;
             this.inverse21.Size = new System.Drawing.Size(53, 23);
             this.inverse21.TabIndex = 44;
             this.inverse21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -587,6 +607,7 @@
             this.inverse20.Location = new System.Drawing.Point(689, 311);
             this.inverse20.Margin = new System.Windows.Forms.Padding(4);
             this.inverse20.Name = "inverse20";
+            this.inverse20.ReadOnly = true;
             this.inverse20.Size = new System.Drawing.Size(53, 23);
             this.inverse20.TabIndex = 43;
             this.inverse20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -597,6 +618,7 @@
             this.inverse14.Location = new System.Drawing.Point(961, 279);
             this.inverse14.Margin = new System.Windows.Forms.Padding(4);
             this.inverse14.Name = "inverse14";
+            this.inverse14.ReadOnly = true;
             this.inverse14.Size = new System.Drawing.Size(53, 23);
             this.inverse14.TabIndex = 42;
             this.inverse14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -607,6 +629,7 @@
             this.inverse13.Location = new System.Drawing.Point(893, 279);
             this.inverse13.Margin = new System.Windows.Forms.Padding(4);
             this.inverse13.Name = "inverse13";
+            this.inverse13.ReadOnly = true;
             this.inverse13.Size = new System.Drawing.Size(53, 23);
             this.inverse13.TabIndex = 41;
             this.inverse13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -617,6 +640,7 @@
             this.inverse12.Location = new System.Drawing.Point(825, 279);
             this.inverse12.Margin = new System.Windows.Forms.Padding(4);
             this.inverse12.Name = "inverse12";
+            this.inverse12.ReadOnly = true;
             this.inverse12.Size = new System.Drawing.Size(53, 23);
             this.inverse12.TabIndex = 40;
             this.inverse12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -627,6 +651,7 @@
             this.inverse11.Location = new System.Drawing.Point(757, 279);
             this.inverse11.Margin = new System.Windows.Forms.Padding(4);
             this.inverse11.Name = "inverse11";
+            this.inverse11.ReadOnly = true;
             this.inverse11.Size = new System.Drawing.Size(53, 23);
             this.inverse11.TabIndex = 39;
             this.inverse11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -637,6 +662,7 @@
             this.inverse10.Location = new System.Drawing.Point(689, 279);
             this.inverse10.Margin = new System.Windows.Forms.Padding(4);
             this.inverse10.Name = "inverse10";
+            this.inverse10.ReadOnly = true;
             this.inverse10.Size = new System.Drawing.Size(53, 23);
             this.inverse10.TabIndex = 38;
             this.inverse10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -647,6 +673,7 @@
             this.inverse04.Location = new System.Drawing.Point(961, 247);
             this.inverse04.Margin = new System.Windows.Forms.Padding(4);
             this.inverse04.Name = "inverse04";
+            this.inverse04.ReadOnly = true;
             this.inverse04.Size = new System.Drawing.Size(53, 23);
             this.inverse04.TabIndex = 37;
             this.inverse04.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -657,6 +684,7 @@
             this.inverse03.Location = new System.Drawing.Point(893, 247);
             this.inverse03.Margin = new System.Windows.Forms.Padding(4);
             this.inverse03.Name = "inverse03";
+            this.inverse03.ReadOnly = true;
             this.inverse03.Size = new System.Drawing.Size(53, 23);
             this.inverse03.TabIndex = 36;
             this.inverse03.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -667,6 +695,7 @@
             this.inverse02.Location = new System.Drawing.Point(825, 247);
             this.inverse02.Margin = new System.Windows.Forms.Padding(4);
             this.inverse02.Name = "inverse02";
+            this.inverse02.ReadOnly = true;
             this.inverse02.Size = new System.Drawing.Size(53, 23);
             this.inverse02.TabIndex = 35;
             this.inverse02.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -677,6 +706,7 @@
             this.inverse01.Location = new System.Drawing.Point(757, 247);
             this.inverse01.Margin = new System.Windows.Forms.Padding(4);
             this.inverse01.Name = "inverse01";
+            this.inverse01.ReadOnly = true;
             this.inverse01.Size = new System.Drawing.Size(53, 23);
             this.inverse01.TabIndex = 34;
             this.inverse01.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -687,6 +717,7 @@
             this.inverse00.Location = new System.Drawing.Point(689, 247);
             this.inverse00.Margin = new System.Windows.Forms.Padding(4);
             this.inverse00.Name = "inverse00";
+            this.inverse00.ReadOnly = true;
             this.inverse00.Size = new System.Drawing.Size(53, 23);
             this.inverse00.TabIndex = 33;
             this.inverse00.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -703,6 +734,7 @@
             // 
             // btnSaveTextToFile
             // 
+            this.btnSaveTextToFile.Enabled = false;
             this.btnSaveTextToFile.Location = new System.Drawing.Point(893, 443);
             this.btnSaveTextToFile.Name = "btnSaveTextToFile";
             this.btnSaveTextToFile.Size = new System.Drawing.Size(167, 80);
@@ -713,6 +745,7 @@
             // 
             // btnShowFreqDict
             // 
+            this.btnShowFreqDict.Enabled = false;
             this.btnShowFreqDict.Location = new System.Drawing.Point(893, 529);
             this.btnShowFreqDict.Name = "btnShowFreqDict";
             this.btnShowFreqDict.Size = new System.Drawing.Size(167, 80);
@@ -722,12 +755,14 @@
             // 
             // btnAutoGenerateKey
             // 
+            this.btnAutoGenerateKey.Enabled = false;
             this.btnAutoGenerateKey.Location = new System.Drawing.Point(33, 381);
             this.btnAutoGenerateKey.Name = "btnAutoGenerateKey";
             this.btnAutoGenerateKey.Size = new System.Drawing.Size(195, 28);
             this.btnAutoGenerateKey.TabIndex = 62;
             this.btnAutoGenerateKey.Text = "Автогенерация ключа";
             this.btnAutoGenerateKey.UseVisualStyleBackColor = true;
+            this.btnAutoGenerateKey.Click += new System.EventHandler(this.btnAutoGenerateKey_Click);
             // 
             // Form1
             // 
@@ -798,7 +833,7 @@
             this.Controls.Add(this.outputTextBox);
             this.Controls.Add(this.inputTextBox);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);

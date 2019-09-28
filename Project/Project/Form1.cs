@@ -22,60 +22,8 @@ namespace Project
         public Form1()
         {
             InitializeComponent();
-
-            //var matrix = DenseMatrix.OfArray(new double[,]
-            //{
-            //    { 17,17,5},
-            //    {21,18,21 },
-            //    {2,2,19}
-            //});
-
-            //var matrix2 = DenseMatrix.OfArray(new double[,]
-            //{
-            //    {5,17},
-            //    {8,3 }
-            //});
-
-            //inputTextBox.Text = matrix.ToMatrixString();
-
-            //inputTextBox.Text = inputTextBox.Text + "\ndet: " + Math.Abs(matrix.Determinant()) % 26;
-
-            //outputTextBox.Text = Inverse(matrix2).ToMatrixString();
-
         }
 
-        private Matrix<double> Inverse(Matrix<double> matrix)
-        {
-            var outputMatrix = DenseMatrix.Build.DenseDiagonal(matrix.RowCount, matrix.ColumnCount, 0);
-            var matrixDet = (int)Math.Round(matrix.Determinant());
-
-            while (matrixDet < 0)
-            {
-                matrixDet += 26;
-            }
-
-            for (int i = 0; i < matrix.RowCount; i++)
-            {
-                for (int j = 0; j < matrix.ColumnCount; j++)
-                {
-                    var tempMatrix = matrix.RemoveRow(i).RemoveColumn(j);
-                    var insertedValue = Math.Pow(-1, i + j) * tempMatrix.Determinant();
-
-                    while (insertedValue < 0)
-                    {
-                        insertedValue += 26;
-                    }
-
-                    while (insertedValue % matrixDet != 0)
-                    {
-                        insertedValue += 26;
-                    }
-                    outputMatrix.At(j, i, Math.Round(insertedValue / matrixDet) % 26);
-                }
-            }
-
-            return (Matrix)outputMatrix;
-        }
 
         private void btnLoadTextFromFile_Click(object sender, EventArgs e)
         {
@@ -106,10 +54,12 @@ namespace Project
         private void cmbboxMatrixSize_SelectedIndexChanged(object sender, EventArgs e)
         {
             var matrixSize = int.Parse(cmbboxMatrixSize.SelectedItem.ToString());
+
             if (matrixSize != 0)
             {
                 _matrixSize = matrixSize;
                 enableMatrixInputs(_matrixSize);
+                btnAutoGenerateKey.Enabled = true;
             }
         }
 
@@ -145,9 +95,26 @@ namespace Project
 
         private void btnFindInverseMatrix_Click(object sender, EventArgs e)
         {
-            fillMatrixFromInterface();
-            _inverseKeyMatrix = Inverse(_keyMatrix);
-            fillInputsForMatrix("inverse");
+            try
+            {
+                fillMatrixFromInterface();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Заполните матрицу ключа!");
+                return;
+            }
+
+            if (MatrixHelper.CheckConstraints(_keyMatrix))
+            {
+                _inverseKeyMatrix = MatrixHelper.Inverse(_keyMatrix);
+                fillInputsForMatrix("inverse");
+            }
+            else
+            {
+                MessageBox.Show("Матрица не удовлетворяет ограничениям!");
+            }
+            
         }
 
         private void fillMatrixFromInterface()
@@ -188,6 +155,45 @@ namespace Project
                     var controls = Controls.Find(matrixName + i + j, false);
                     controls[0].Text = tempMatrix.At(i, j).ToString();
                 }
+            }
+        }
+
+        private void btnAutoGenerateKey_Click(object sender, EventArgs e)
+        {
+            _keyMatrix = MatrixHelper.GetRandomMatrix(_matrixSize);
+            fillInputsForMatrix("matrix");
+        }
+
+        private void outputTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (outputTextBox.Text.Length > 0)
+            {
+                btnDecrypt.Enabled = true;
+                btnSaveTextToFile.Enabled = true;
+                btnShowFreqDict.Enabled = true;
+            }
+            else
+            {
+                btnDecrypt.Enabled = false;
+                btnSaveTextToFile.Enabled = false;
+                btnShowFreqDict.Enabled = false;
+            }
+        }
+
+        private void btnEncrypt_Click(object sender, EventArgs e)
+        {
+            outputTextBox.Text = HillEncoder.Encrypt(inputTextBox.Text, _keyMatrix);
+        }
+
+        private void inputTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (inputTextBox.Text.Length > 0)
+            {
+                btnEncrypt.Enabled = true;
+            }
+            else
+            {
+                btnEncrypt.Enabled = false;
             }
         }
     }
