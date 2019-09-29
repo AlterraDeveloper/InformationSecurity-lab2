@@ -58,7 +58,7 @@ namespace Project
         {
             if (size < 0 || size > 5) return null;
 
-            var outputMatrix = DenseMatrix.CreateRandom(size, size, new Cauchy());
+            var outputMatrix = DenseMatrix.CreateRandom(size, size, new Chi(100));
 
             for (int i = 0; i < size; i++)
             {

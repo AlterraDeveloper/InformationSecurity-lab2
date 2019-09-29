@@ -182,7 +182,34 @@ namespace Project
 
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
-            outputTextBox.Text = HillEncoder.Encrypt(inputTextBox.Text, _keyMatrix);
+            if (_keyMatrix != null)
+            {
+                var text = "";
+                foreach (var ch in inputTextBox.Text.Where(x => Settings.ALPHABET.Contains(x)).ToArray())
+                {
+                    text += ch;
+                }
+                outputTextBox.Text = MergeEncryptAndOriginalStrings(HillEncoder.Encrypt(text, _keyMatrix),inputTextBox.Text);
+            }
+        }
+
+        private string MergeEncryptAndOriginalStrings(string encryptString, string originalString)
+        {
+            var mergedString = "";
+            foreach (var ch in originalString)
+            {
+                if (Settings.ALPHABET.Contains(ch))
+                {
+                    mergedString += encryptString[0];
+                    encryptString = encryptString.Remove(0, 1);
+                }
+                else
+                {
+                    mergedString += ch;
+                }
+            }
+
+            return mergedString;
         }
 
         private void inputTextBox_TextChanged(object sender, EventArgs e)
@@ -195,6 +222,25 @@ namespace Project
             {
                 btnEncrypt.Enabled = false;
             }
+        }
+
+        private void btnDecrypt_Click(object sender, EventArgs e)
+        {
+            if (_inverseKeyMatrix != null)
+            {
+                var text = "";
+                foreach (var ch in outputTextBox.Text.Where(x => Settings.ALPHABET.Contains(x)).ToArray())
+                {
+                    text += ch;
+                }
+                outputTextBox.Text = MergeEncryptAndOriginalStrings(HillEncoder.Encrypt(text, _inverseKeyMatrix), outputTextBox.Text);
+            }
+        }
+
+        private void btnShowFreqDict_Click(object sender, EventArgs e)
+        {
+            var dict = FrequentCounter.countAppearencesOfLetter(outputTextBox.Text);
+            new FreqDictForm(dict.Values.ToArray()).ShowDialog(this);
         }
     }
 }

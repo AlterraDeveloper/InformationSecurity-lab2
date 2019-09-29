@@ -11,13 +11,14 @@ namespace Project
     {
         public static string Encrypt(string inputText, Matrix<double> matrixOfKey)
         {
+            var inputTextLength = inputText.Length;
             inputText = inputText.ToLower();
             var outputText = "";
             var portionSize = matrixOfKey.RowCount;
 
             while (inputText.Length % portionSize != 0)
             {
-                inputText += ' ';
+                inputText += 'x';
             }
 
             for (int i = 0; i < inputText.Length; i += portionSize)
@@ -31,6 +32,7 @@ namespace Project
                 }
             }
 
+            //return outputText.Substring(0,inputTextLength);
             return outputText;
         }
     }

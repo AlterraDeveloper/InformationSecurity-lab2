@@ -99,6 +99,7 @@
             this.inputTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.inputTextBox.Multiline = true;
             this.inputTextBox.Name = "inputTextBox";
+            this.inputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.inputTextBox.Size = new System.Drawing.Size(845, 176);
             this.inputTextBox.TabIndex = 0;
             this.inputTextBox.TextChanged += new System.EventHandler(this.inputTextBox_TextChanged);
@@ -111,6 +112,7 @@
             this.outputTextBox.Multiline = true;
             this.outputTextBox.Name = "outputTextBox";
             this.outputTextBox.ReadOnly = true;
+            this.outputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.outputTextBox.Size = new System.Drawing.Size(845, 176);
             this.outputTextBox.TabIndex = 1;
             this.outputTextBox.TextChanged += new System.EventHandler(this.outputTextBox_TextChanged);
@@ -137,6 +139,7 @@
             this.btnDecrypt.TabIndex = 3;
             this.btnDecrypt.Text = "Расшифровать";
             this.btnDecrypt.UseVisualStyleBackColor = true;
+            this.btnDecrypt.Click += new System.EventHandler(this.btnDecrypt_Click);
             // 
             // btnLoadTextFromFile
             // 
@@ -752,6 +755,7 @@
             this.btnShowFreqDict.TabIndex = 61;
             this.btnShowFreqDict.Text = "Показать частотный словарь";
             this.btnShowFreqDict.UseVisualStyleBackColor = true;
+            this.btnShowFreqDict.Click += new System.EventHandler(this.btnShowFreqDict_Click);
             // 
             // btnAutoGenerateKey
             // 
