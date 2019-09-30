@@ -86,9 +86,23 @@ namespace Project
                 for (int j = 0; j < 5; j++)
                 {
                     var controls = Controls.Find("matrix" + i + j, false);
-                    foreach (var control in controls) control.Enabled = false;
+                    foreach (var control in controls)
+                    {
+                        control.Enabled = false;
+                        if (i == int.Parse(cmbboxMatrixSize.SelectedItem as string) || j == int.Parse(cmbboxMatrixSize.SelectedItem as string))
+                        {
+                            control.Text = "";
+                        }
+                    }
                     controls = Controls.Find("inverse" + i + j, false);
-                    foreach (var control in controls) control.Enabled = false;
+                    foreach (var control in controls)
+                    {
+                        control.Enabled = false;
+                        if (i == int.Parse(cmbboxMatrixSize.SelectedItem as string) || j == int.Parse(cmbboxMatrixSize.SelectedItem as string))
+                        {
+                            control.Text = "";
+                        }
+                    }
                 }
             }
         }
@@ -114,7 +128,7 @@ namespace Project
             {
                 MessageBox.Show("Матрица не удовлетворяет ограничениям!");
             }
-            
+
         }
 
         private void fillMatrixFromInterface()
@@ -184,12 +198,7 @@ namespace Project
         {
             if (_keyMatrix != null)
             {
-                var text = "";
-                foreach (var ch in inputTextBox.Text.Where(x => Settings.ALPHABET.Contains(x)).ToArray())
-                {
-                    text += ch;
-                }
-                outputTextBox.Text = MergeEncryptAndOriginalStrings(HillEncoder.Encrypt(text, _keyMatrix),inputTextBox.Text);
+                outputTextBox.Text = MergeEncryptAndOriginalStrings(HillEncoder.Encrypt(inputTextBox.Text, _keyMatrix), inputTextBox.Text);
             }
         }
 
@@ -228,12 +237,7 @@ namespace Project
         {
             if (_inverseKeyMatrix != null)
             {
-                var text = "";
-                foreach (var ch in outputTextBox.Text.Where(x => Settings.ALPHABET.Contains(x)).ToArray())
-                {
-                    text += ch;
-                }
-                outputTextBox.Text = MergeEncryptAndOriginalStrings(HillEncoder.Encrypt(text, _inverseKeyMatrix), outputTextBox.Text);
+                outputTextBox.Text = MergeEncryptAndOriginalStrings(HillEncoder.Encrypt(outputTextBox.Text, _inverseKeyMatrix), outputTextBox.Text);
             }
         }
 

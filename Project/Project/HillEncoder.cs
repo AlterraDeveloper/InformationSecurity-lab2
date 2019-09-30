@@ -11,8 +11,7 @@ namespace Project
     {
         public static string Encrypt(string inputText, Matrix<double> matrixOfKey)
         {
-            var inputTextLength = inputText.Length;
-            inputText = inputText.ToLower();
+            inputText = PrepareTextToEncrypting(inputText);
             var outputText = "";
             var portionSize = matrixOfKey.RowCount;
 
@@ -32,8 +31,18 @@ namespace Project
                 }
             }
 
-            //return outputText.Substring(0,inputTextLength);
             return outputText;
+        }
+
+        private static string PrepareTextToEncrypting(string original)
+        {
+            var text = "";
+            foreach (var ch in original.Where(x => Settings.ALPHABET.Contains(x)).ToArray())
+            {
+                text += ch;
+            }
+
+            return text;
         }
     }
 }
