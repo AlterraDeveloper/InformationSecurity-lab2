@@ -244,7 +244,7 @@ namespace Project
         private void btnShowFreqDict_Click(object sender, EventArgs e)
         {
             var dict = FrequentCounter.countAppearencesOfLetter(outputTextBox.Text);
-            new FreqDictForm(dict.Values.ToArray()).ShowDialog(this);
+            new FreqDictForm(dict.OrderByDescending(x => x.Value).Select(x => x.Value).ToArray()).ShowDialog(this);
         }
     }
 }
