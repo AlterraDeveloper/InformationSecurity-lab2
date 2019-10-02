@@ -246,5 +246,10 @@ namespace Project
             var dict = FrequentCounter.countAppearencesOfLetter(outputTextBox.Text);
             new FreqDictForm(dict.OrderByDescending(x => x.Value).Select(x => x.Value).ToArray()).ShowDialog(this);
         }
+
+        private void btnGuessMatrixOfKey_Click(object sender, EventArgs e)
+        {
+            Matrix<double> matrixOfKey = HillEncoder.CalculateMatrixOfKey(inputTextBox.Text, outputTextBox.Text,_matrixSize);
+        }
     }
 }

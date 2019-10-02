@@ -91,6 +91,7 @@
             this.btnSaveTextToFile = new System.Windows.Forms.Button();
             this.btnShowFreqDict = new System.Windows.Forms.Button();
             this.btnAutoGenerateKey = new System.Windows.Forms.Button();
+            this.btnGuessMatrixOfKey = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // inputTextBox
@@ -120,7 +121,7 @@
             // btnEncrypt
             // 
             this.btnEncrypt.Enabled = false;
-            this.btnEncrypt.Location = new System.Drawing.Point(33, 247);
+            this.btnEncrypt.Location = new System.Drawing.Point(33, 217);
             this.btnEncrypt.Margin = new System.Windows.Forms.Padding(4);
             this.btnEncrypt.Name = "btnEncrypt";
             this.btnEncrypt.Size = new System.Drawing.Size(195, 28);
@@ -132,7 +133,7 @@
             // btnDecrypt
             // 
             this.btnDecrypt.Enabled = false;
-            this.btnDecrypt.Location = new System.Drawing.Point(33, 283);
+            this.btnDecrypt.Location = new System.Drawing.Point(33, 253);
             this.btnDecrypt.Margin = new System.Windows.Forms.Padding(4);
             this.btnDecrypt.Name = "btnDecrypt";
             this.btnDecrypt.Size = new System.Drawing.Size(195, 28);
@@ -160,7 +161,7 @@
             "3",
             "4",
             "5"});
-            this.cmbboxMatrixSize.Location = new System.Drawing.Point(56, 350);
+            this.cmbboxMatrixSize.Location = new System.Drawing.Point(56, 320);
             this.cmbboxMatrixSize.Margin = new System.Windows.Forms.Padding(4);
             this.cmbboxMatrixSize.Name = "cmbboxMatrixSize";
             this.cmbboxMatrixSize.Size = new System.Drawing.Size(160, 24);
@@ -170,7 +171,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 327);
+            this.label1.Location = new System.Drawing.Point(30, 297);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(201, 17);
@@ -760,7 +761,7 @@
             // btnAutoGenerateKey
             // 
             this.btnAutoGenerateKey.Enabled = false;
-            this.btnAutoGenerateKey.Location = new System.Drawing.Point(33, 381);
+            this.btnAutoGenerateKey.Location = new System.Drawing.Point(33, 351);
             this.btnAutoGenerateKey.Name = "btnAutoGenerateKey";
             this.btnAutoGenerateKey.Size = new System.Drawing.Size(195, 28);
             this.btnAutoGenerateKey.TabIndex = 62;
@@ -768,11 +769,23 @@
             this.btnAutoGenerateKey.UseVisualStyleBackColor = true;
             this.btnAutoGenerateKey.Click += new System.EventHandler(this.btnAutoGenerateKey_Click);
             // 
+            // btnGuessMatrixOfKey
+            // 
+            this.btnGuessMatrixOfKey.Enabled = false;
+            this.btnGuessMatrixOfKey.Location = new System.Drawing.Point(33, 385);
+            this.btnGuessMatrixOfKey.Name = "btnGuessMatrixOfKey";
+            this.btnGuessMatrixOfKey.Size = new System.Drawing.Size(195, 28);
+            this.btnGuessMatrixOfKey.TabIndex = 63;
+            this.btnGuessMatrixOfKey.Text = "Вычислить матрицу ключа";
+            this.btnGuessMatrixOfKey.UseVisualStyleBackColor = true;
+            this.btnGuessMatrixOfKey.Click += new System.EventHandler(this.btnGuessMatrixOfKey_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1077, 635);
+            this.Controls.Add(this.btnGuessMatrixOfKey);
             this.Controls.Add(this.btnAutoGenerateKey);
             this.Controls.Add(this.btnShowFreqDict);
             this.Controls.Add(this.btnSaveTextToFile);
@@ -910,6 +923,7 @@
         private System.Windows.Forms.Button btnSaveTextToFile;
         private System.Windows.Forms.Button btnShowFreqDict;
         private System.Windows.Forms.Button btnAutoGenerateKey;
+        private System.Windows.Forms.Button btnGuessMatrixOfKey;
     }
 }
 

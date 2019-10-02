@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MathNet.Numerics.LinearAlgebra;
+using MathNet.Numerics.LinearAlgebra.Double;
 
 namespace Project
 {
@@ -34,15 +35,26 @@ namespace Project
             return outputText;
         }
 
-        private static string PrepareTextToEncrypting(string original)
+        private static string PrepareTextToEncrypting(string original,int? length = null)
         {
             var text = "";
             foreach (var ch in original.Where(x => Settings.ALPHABET.Contains(x)).ToArray())
             {
                 text += ch;
+                if (length != null && text.Length == length) break;
             }
 
             return text;
+        }
+
+        public static Matrix<double> CalculateMatrixOfKey(string originalText, string encryptedText, int size)
+        {
+            var matrix = DenseMatrix.Build.DenseDiagonal(size,size, 0);
+
+            originalText = PrepareTextToEncrypting(originalText, size * size);
+            encryptedText = PrepareTextToEncrypting(encryptedText, size * size);
+
+            return matrix;
         }
     }
 }
