@@ -49,12 +49,17 @@ namespace Project
 
         public static Matrix<double> CalculateMatrixOfKey(string originalText, string encryptedText, int size)
         {
-            var matrix = DenseMatrix.Build.DenseDiagonal(size,size, 0);
-
             originalText = PrepareTextToEncrypting(originalText, size * size);
             encryptedText = PrepareTextToEncrypting(encryptedText, size * size);
 
-            return matrix;
+            var matrixX = MatrixHelper.GetMatrixFromString(originalText);
+            var matrixY = MatrixHelper.GetMatrixFromString(encryptedText);
+            if (MatrixHelper.CheckConstraints(matrixX))
+            {
+                return MatrixHelper.Inverse(matrixX).Multiply(matrixY).Modulus(Settings.ALPHABET_LENGTH);
+            }
+
+            return Matrix<double>.Build.Dense(size, size, 0);
         }
     }
 }

@@ -112,7 +112,6 @@
             this.outputTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.outputTextBox.Multiline = true;
             this.outputTextBox.Name = "outputTextBox";
-            this.outputTextBox.ReadOnly = true;
             this.outputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.outputTextBox.Size = new System.Drawing.Size(845, 176);
             this.outputTextBox.TabIndex = 1;
@@ -771,7 +770,6 @@
             // 
             // btnGuessMatrixOfKey
             // 
-            this.btnGuessMatrixOfKey.Enabled = false;
             this.btnGuessMatrixOfKey.Location = new System.Drawing.Point(33, 385);
             this.btnGuessMatrixOfKey.Name = "btnGuessMatrixOfKey";
             this.btnGuessMatrixOfKey.Size = new System.Drawing.Size(195, 28);

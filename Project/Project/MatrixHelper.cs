@@ -64,11 +64,27 @@ namespace Project
             {
                 for (int j = 0; j < size; j++)
                 {
-                    outputMatrix.At(i, j, Math.Round(outputMatrix.At(i,j),0));
+                    outputMatrix.At(i, j, Math.Round(outputMatrix.At(i, j), 0));
                 }
             }
 
             return outputMatrix;
+        }
+
+        public static Matrix<double> GetMatrixFromString(string text)
+        {
+            var size = int.Parse(Math.Sqrt(text.Length).ToString());
+            var matrix = DenseMatrix.Build.DenseDiagonal(size, size, 0);
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    matrix.At(i, j, Settings.ALPHABET.IndexOf(text[i * size + j]));
+                }
+            }
+
+            return matrix;
         }
     }
 }
