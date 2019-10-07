@@ -250,7 +250,7 @@ namespace Project
         private void btnGuessMatrixOfKey_Click(object sender, EventArgs e)
         {
             var matrixOfKey = HillEncoder.CalculateMatrixOfKey(inputTextBox.Text, outputTextBox.Text,_matrixSize);
-            MessageBox.Show(matrixOfKey.ToMatrixString(_matrixSize, _matrixSize));
+            MessageBox.Show(matrixOfKey.Transpose().ToMatrixString(_matrixSize, _matrixSize));
         }
     }
 }
