@@ -174,7 +174,12 @@ namespace Project
 
         private void btnAutoGenerateKey_Click(object sender, EventArgs e)
         {
-            _keyMatrix = MatrixHelper.GetRandomMatrix(_matrixSize);
+            do
+            {
+                _keyMatrix = MatrixHelper.GetRandomMatrix(_matrixSize);
+
+            } while (!MatrixHelper.CheckConstraints(_keyMatrix));
+            
             fillInputsForMatrix("matrix");
         }
 
