@@ -12,7 +12,7 @@ namespace Project
     {
         public static string Encrypt(string inputText, Matrix<double> matrixOfKey)
         {
-            inputText = PrepareTextToEncrypting(inputText);
+            inputText = PrepareTextToEncrypting(inputText, inputText.Length);
             var outputText = "";
             var portionSize = matrixOfKey.RowCount;
 
@@ -35,31 +35,52 @@ namespace Project
             return outputText;
         }
 
-        private static string PrepareTextToEncrypting(string original,int? length = null)
+        private static string PrepareTextToEncrypting(string original, int length, int startIndex = 0)
         {
             var text = "";
-            foreach (var ch in original.Where(x => Settings.ALPHABET.Contains(x)).ToArray())
+            var symbolsInAlphabet = original.Where(x => Settings.ALPHABET.Contains(x)).ToArray();
+            for (int i = startIndex; i < Math.Min(length + startIndex , symbolsInAlphabet.Length); i++)
             {
-                text += ch;
-                if (length != null && text.Length == length) break;
+                text += symbolsInAlphabet[i];
             }
-
+            //foreach (var ch in original.Where(x => Settings.ALPHABET.Contains(x)).ToArray())
+            //{
+            //    text += ch;
+            //    if (length != null && text.Length == length) break;
+            //}
             return text;
         }
 
         public static Matrix<double> CalculateMatrixOfKey(string originalText, string encryptedText, int size)
         {
-            originalText = PrepareTextToEncrypting(originalText, size * size);
-            encryptedText = PrepareTextToEncrypting(encryptedText, size * size);
-
-            var matrixX = MatrixHelper.GetMatrixFromString(originalText);
-            var matrixY = MatrixHelper.GetMatrixFromString(encryptedText);
-            if (MatrixHelper.CheckConstraints(matrixX))
+            Matrix<double> matrixX, matrixY;
+            string originalTextPortion, encryptedTextPortion;
+            var i = 0;
+            do
             {
-                return MatrixHelper.Inverse(matrixX).Multiply(matrixY).Modulus(Settings.ALPHABET_LENGTH);
-            }
+                originalTextPortion = PrepareTextToEncrypting(originalText, size * size, i);
+                encryptedTextPortion = PrepareTextToEncrypting(encryptedText, size * size, i);
 
-            return Matrix<double>.Build.Dense(size, size, 0);
+                matrixX = MatrixHelper.GetMatrixFromString(originalTextPortion);
+                matrixY = MatrixHelper.GetMatrixFromString(encryptedTextPortion);
+
+                i++;
+
+            } while (!MatrixHelper.CheckConstraints(matrixX));
+
+            return MatrixHelper.Inverse(matrixX).Multiply(matrixY).Modulus(Settings.ALPHABET_LENGTH);
+
+            //originalText = PrepareTextToEncrypting(originalText, size * size);
+            //encryptedText = PrepareTextToEncrypting(encryptedText, size * size);
+
+            //var matrixX = MatrixHelper.GetMatrixFromString(originalText);
+            //var matrixY = MatrixHelper.GetMatrixFromString(encryptedText);
+            //if (MatrixHelper.CheckConstraints(matrixX))
+            //{
+            //    return MatrixHelper.Inverse(matrixX).Multiply(matrixY).Modulus(Settings.ALPHABET_LENGTH);
+            //}
+
+            //return Matrix<double>.Build.Dense(size, size, 0);
         }
     }
 }
